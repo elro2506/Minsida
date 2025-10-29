@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="sv">
+
+<head>
+  <meta charset="utf-8">
+  <title>Bilder</title>
+  <link href="bilder/Logotyp.png" rel="icon" type="image/x-icon">
+  <link href="style.css" rel="stylesheet">
+</head>
+
+<body>
+  <header>
+    <!--Headern får en egen klass-->
+    <nav class="header-nav">
+      <a aria-label="Gå till startsidan" class="site-logo" href="index.html" title="Startsidan">
+        <img alt="Min startsida" src="bilder/Logotyp.png" width="80"></a>
+      <div class="topnav" id="myTopnav">
+        <a href="index.html">Startsida</a> 
+        <a href="courses.html">Kurser</a>
+        <div class="dropdown active">
+          <button class="dropbtn active">Bilder<i class="fa fa-caret-down"></i></button>
+          <!--för att jag ska kunna få Bilder-knappen markerad även om jag är i en undersida i dropdown-->
+          <div class="dropdown-content">
+            <a href="pictures1.html">Skånska fotbollslag</a> 
+            <a href="pictures2.html">Berg i Afrika</a> 
+            <a href="pictures3.html">Träd i skogen</a>
+          </div>
+        </div><a href="about.html">Om mig</a> 
+        <a href="contact.html">Kontakt</a>
+      </div>
+    </nav>
+  </header>
+  <div class="hero-image">
+    <div class="hero-text">
+      <h1 style="font-size:50px">Elin Ronda</h1>
+      <p>Webbutvecklingsprogrammet</p>
+    </div>
+  </div>
+  <div class="site-wrapper">
+    <div class="column">
+      <div class="columnLeft">
+        <!--Sidomenyn får egen klass -->
+        <nav class="side-nav">
+          <ul>
+            <li>
+              <a class="active" href="pictures1.html">Skånska fotbollslag</a>
+            </li>
+            <li>
+              <a href="pictures2.html">Berg i Afrika</a>
+            </li>
+            <li>
+              <a href="pictures3.html">Träd i skogen</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+      <div class="columnRight">
+        <!--här vill jag testa span-verktyget-->
+        <h2 class="nyheter"><span style="color:red">S</span> 
+          <span style="color:yellow">k</span> 
+          <span style="color:red">å</span> 
+          <span style="color:yellow">n</span> 
+          <span style="color:red">s</span> 
+          <span style="color:yellow">k</span> 
+          <span style="color:red">a</span> fotbollslag</h2>
+        <img alt="Landskrona BoIS logotyp" src="bilder/Bois.png" width="250">
+        <img alt="Helsingborgs IF:s logotyp" src="bilder/Hif.jpg" width="250">
+        <img alt="Malmö FF:s logotyp" src="bilder/Mff.jpg" width="250">
+      </div>
+    </div>
+  </div>
+  <footer>
+    2025-10-03, Elin Ronda, elro2506@student.miun.se
+  </footer>
+  <a class="contact-icon" href="mailto:elro2506@student.miun.se">Mejla mig!</a>
+
+</body>
+
+</html>

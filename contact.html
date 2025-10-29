@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="sv">
+
+<head>
+  <meta charset="utf-8">
+  <title>Kontakt</title>
+  <link href="bilder/Logotyp.png" rel="icon" type="image/x-icon">
+  <link href="style.css" rel="stylesheet">
+</head>
+
+<body>
+  <header>
+    <nav>
+      <a aria-label="Gå till startsidan" class="site-logo" href="index.html" title="Startsidan">
+        <img alt="Min startsida" src="bilder/Logotyp.png" width="80"></a>
+      <div class="topnav" id="myTopnav">
+        <a href="index.html">Startsida</a> 
+        <a href="courses.html">Kurser</a>
+        <div class="dropdown">
+          <button class="dropbtn">Bilder<i class="fa fa-caret-down"></i></button>
+          <div class="dropdown-content">
+            <a href="pictures1.html">Skånska fotbollslag</a> 
+            <a href="pictures2.html">Berg i Afrika</a> 
+            <a href="pictures3.html">Träd i skogen</a>
+          </div>
+        </div><a href="about.html">Om mig</a> 
+        <a class="active" href="contact.html">Kontakt</a>
+      </div>
+    </nav>
+  </header>
+  <div class="hero-image">
+    <div class="hero-text">
+      <h1 style="font-size:50px">Elin Ronda</h1>
+      <p>Webbutvecklingsprogrammet</p>
+    </div>
+  </div>
+  <div class="site-wrapper">
+    <div class="contact-page">
+      <h1>Kontaktformulär</h1>
+      <form aria-label="Kontaktformulär">
+        <!--Lade till ur tillgänglighetsperspektiv så att synnedsatta ska kunna veta vad detta är-->
+        <label for="firstName">Namn:</label>
+        <br>
+        <input id="firstName" name="firstName" placeholder="För- och efternamn" type="text">
+        <!--om man skulle samla in datan i formuläret så är det bra med id och name. Placeholder är den förklarande texten som står i textrutan-->
+        <br>
+        <br>
+        <label for="email">E-postadress:</label>
+        <br>
+        <input id="email" name="email" placeholder="exempel@student.miun.se" type="email">
+        <!--om det är type email så kommer datorn vilja att man skriver i en giltig e-postadress och inte bara bokstäver-->
+        <br>
+        <br>
+        <label for="yrke">Yrke:</label> <select id="yrke" name="yrke">
+          <option value="">
+            <!--här kan man välja bland olika val i en lista-->
+            Välj ditt yrke
+          </option>
+          <option value="webDeveloper">
+            Webbutvecklare
+          </option>
+          <option value="webDesigner">
+            Webbdesigner
+          </option>
+          <option value="frontEnd">
+            Frontendutvecklare
+          </option>
+          <option value="backEnd">
+            Backendutvecklare
+          </option>
+        </select><br>
+        <br>
+        <label for="newsLetter">Nyhetsbrev:</label> 
+        <input id="newsLetter" name="newsLetter" type="checkbox">
+        <br>
+        <br>
+        <p>Anställd</p>
+        <input checked id="employed" name="employment" type="radio" value="yes">
+        <!--för-ifyllt Ja--> 
+        <label for="employed">Ja</label>
+        <br>
+        <input id="unemployed" name="employment" type="radio" value="no"> 
+        <label for="unemployed">Nej</label>
+        <br>
+        <br>
+        <label for="message">Meddelande:</label><br>
+        <textarea cols="50" id="message" name="message" rows="4"></textarea>
+        <br>
+        <br>
+        <input type="submit" value="Skicka"> <input type="reset" value="Nollställ">
+      </form>
+    </div>
+  </div>
+  <footer>
+    2025-10-03, Elin Ronda, elro2506@student.miun.se
+  </footer>
+  <a class="contact-icon" href="mailto:elro2506@student.miun.se">Mejla mig!</a>
+</body>
+
+</html>

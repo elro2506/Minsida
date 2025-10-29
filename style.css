@@ -1,0 +1,430 @@
+body {
+	margin: 10px;
+	/*marginal 10px på alla sidor*/
+	background-color: #c7d4cf;
+	/*bakgrundsfärg i ljusgrön*/
+	font-family: Arial, Helvetica, sans-serif;
+	/*font family är sans-serif med Arial och Helvetica*/
+	line-height: 1.5;
+}
+
+.site-wrapper {
+	max-width: 1200px;
+	/*sidan blir aldrig bredare än 1200px */
+	margin: 0 auto;
+	/*centrerar i mitten av skärmen */
+	padding: 20px;
+	/*inre luft på alla sidorna*/
+	border: 1px solid #818181;
+	/*valde att ha en ljusgrå kant runt sidorna, som "wrappar" runt innehållet*/
+}
+
+nav {
+	display: flex;
+	/*logga och meny i samma rad, loggan först och sedan menyknapparna. Valde att ha menyknapparna på vänster sida pga de är få. */
+	align-items: center;
+	/*de ärvertikalt centrerade */
+	background-color: #013220;
+	/*toppmenyns bakgrundsfärg, valde mörkare grön så att den får en bättre kontrast mot den vita texten i länkarna*/
+	height: 80px;
+	/*menyns höjd*/
+	padding: 0 20px;
+	/*ville ha lite luft på sidorna */
+}
+
+.site-logo img {
+	display: block;
+	/*väljer att ha loggan som ett block i menyn*/
+	height: 60px;
+	/*skala loggan snyggt*/
+	width: auto;
+	/*bredden på loggan anpassas automatiskt efter bildens proportioner i förhållande till höjden 60px*/
+}
+
+.hero-image {
+	display: flex;
+	/*för att det ska bli en flexbox, allt inuti detta styrs av flexboxregler, där vi kan styra placeringen, radbrytning osv*/
+	justify-content: center;
+	/*för att centrera vågrätt i stället för att hållas till vänster*/
+	align-items: center;
+	/*för att centrera lodrätt i stället för att hållas där uppe*/
+	background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("bilder/Landskrona.png");
+	/*om jag inte har linear-gradient så kommer färgerna i bilden bli väldigt skarpa och då ser man inte texten så bra.
+	Detta är ett transparent filter som läggs på bilden*/
+	height: 300px;
+	/*valde en höjd jag tyckte var lagom när jag provade mig fram*/
+	max-width: 1200px;
+	/*eftersom jag valt att ha 1200px bredd på innehållet så ville jag att detta även skulle gälla denna bild*/
+	margin: 0 auto;
+	/*för att det ska bli centrerat, hamnde annars till vänster*/
+	padding: 20px;
+	/*20px inre marginal*/
+	background-position: center;
+	/*oavsett om bilden blir beskuren så kommer den alltid vara centrerad*/
+	background-size: cover;
+	/*för att undvika tomma rutor så väljer jag att den ska täcka hela ytan på 1200px som är vald*/
+
+}
+
+.hero-text {
+	/*texten som jag lagt på hero-bilden, följer sin parents (hero-image) regler och hålls därför centrerat*/
+	text-align: center;
+	/*centrerat text*/
+	color: white;
+}
+
+.topnav {
+	background-color: #013220;
+	/*mörkgrön bakgrundsfärg på knapparna*/
+	flex-wrap: wrap;
+	/*radbrytning, speciellt om man gör skärmen smalare*/
+	display: flex;
+	/*för att det ska bli en flexbox, allt inuti detta styrs av flexboxregler, där vi kan styra placeringen, radbrytning osv*/
+	gap: 10px;
+	/*avstånd mellan element som ligger i en flexbox, i detta fall 10px*/
+	max-width: 1200px;
+}
+
+
+.topnav a {
+	/*.topnav a betyder att detta berör alla <a> inom topnav*/
+	color: #ffffff;
+	/*Vit text för att kunna ha bra kontrast gentemot boxarna.*/
+	text-align: center;
+	/*centrerat text i knapparna*/
+	padding: 14px 16px;
+	/*för att få "luft" mellan text och knapparnas kanter*/
+	text-decoration: none;
+	/*för att undvika linjer under länkarna*/
+	font-size: 18px;
+}
+
+
+.active {
+	/*Om man lägger till class="active" efter a href i html så lägger man färg på den länken i menyn som man står på. Försöker hålla mig nära
+färgkoden i topnav background-color fast lite ljusare. Färgen på texten ärvs från topnav men hade jag velat ha en annan färg
+så hade jag skrivit ny rad med color: black !important för att det exempelvis ska vara svart.*/
+	background-color: #028155;
+}
+
+.dropdown {
+	/*detta är containern som omsluter hela dropdown-menyn i min html-kod och som håller ihop knappen dropbtn och menyalternativen i dropdown-content*/
+	position: relative;
+	/*detta för att drop-down-innehållet ska hålla sig på rätt plats*/
+	white-space: nowrap;
+}
+
+
+.dropbtn {
+	/*Knappen man klickar/hoverar på för att öppna dropdown-menyn*/
+	padding: 14px 16px;
+	height: 100%;
+	cursor: pointer;
+	/*för att muspekaren ska vara ett klickande finger och inte en pil*/
+	font-size: 18px;
+	border: none;
+	/*Ingen border eftersom jag inte tycker det blir så fint att bara ha det på Bilder som är drop-down-knappen.*/
+	outline: none;
+	/*samma som ovan*/
+	color: white;
+	/*Textens color blir vit eftersom den annars inherit från webbläsarens default som är svart, eftersom det inte finns någon color på
+    föräldern dropdown.*/
+	background-color: inherit;
+	/*Dock så kan man inherit background-color även om det inte finns från föräldern dropdown, i stället
+    så ärver den från högre upp i hierarkin, i detta fall från topnav. Den tar inte från active eftersom det är en 
+    syskonklass och inte förälder, topnav ligger i div i html och därunder finns bland annat active med, dvs syskon */
+	white-space: nowrap;
+	/*undvika radbrytning*/
+
+}
+
+.dropdown-content {
+	/*Detta är själva menyn som dyker upp när man öppnar dropdownen, innehåller länkarna.*/
+	display: none;
+	/*visas inte förrän man håller muspekaren på knappen*/
+	position: absolute;
+	/*absolut position, placerad i förhållande till dropdown som är relativ*/
+	background-color: #01472e;
+	/*bakgrundsfärg på boxarna med länkarna som visas när man hovrar*/
+	min-width: 160px;
+	/*minimumbredd på drop-downen som är minst 160px bred*/
+	z-index: 1;
+	/*för att drop-downen ska hamna ovanpå andra element*/
+
+}
+
+.dropdown-content a {
+	/*Detta är varje enskild länk i dropdownen*/
+	color: white;
+	/*textens färg*/
+	padding: 14px 16px;
+	/*padding runt texten*/
+	text-decoration: none;
+	/*för att undvika understrykning på länkarna*/
+	display: block;
+	/*för att varje länk ska ta upp en hel rad, annars hade de hamnat bredvid varandra i stället för under varandra*/
+	text-align: left;
+	/*för att de ska synas vänsterifrån och inte centrerade*/
+	white-space: nowrap;
+	/*för att man inte ska radbryta om länkarna är för långa*/
+}
+
+.dropdown.active .dropbtn {
+	/*Här lägger jag stilen för knapparna när dropdownen är aktiv, detta för att Bilder-knappen ska vara markerad även om jag är i en undersida*/
+	background-color: #01472e;
+	color: white;
+}
+
+
+
+.topnav a:hover,
+/*När man hovrar över vilken länk som helst i topnav tex Startsida, Om mig osv) */
+.dropdown:hover .dropbtn {
+	/*När man hovrar över Bilder-knappen*/
+	background-color: #0b4b34;
+	/*färgen som knappen Bilder får när du håller muspekaren över den och drop-downen öppnas*/
+	color: white;
+	/*textfärgen på Bilder när du hovrar på Bilder-knappen*/
+}
+
+.dropdown-content a:hover {
+	/*Vad som händer när du håller muspekaren på en länk i drop-down-listan, tex Skånska fotbollslag, så ändras färgerna*/
+	background-color: #01472e;
+	/*backgrundsfärg på länkraden när du hovrar*/
+	color: black;
+	/*drop-down-länkarnas textfärg när du hovrar över dem, går från vit till svart*/
+}
+
+.dropdown:hover .dropdown-content {
+	/*Gör så själva dropdown-menyn öppnas och blir synlig. Default är display: none (osynlig), men när man hovrar på .dropdown visas menyn istället.*/
+	display: block;
+	/*de kommer upp som block*/
+}
+
+a:visited {
+	/*När man besökt en länk så får den vit färg*/
+	color: white;
+}
+
+form {
+	/*regler för formulär*/
+	display: inline-block;
+	padding: 1em;
+	/*em i stället för px då det har bättre förhållande till textstorleken i ett formulär, speciellt om någon skulle zooma in texten ur ett tillgänglighetsperspektiv
+	och då följer padding med med en bra proportion*/
+	border: 1px solid black;
+	border-radius: 1em;
+	/*em i stället för px då det har bättre förhållande till texten i ett formulär, speciellt om någon skulle zooma in texten ur ett tillgänglighetsperspektiv
+	och då följer border-radius, det vill säga rundade hörn, med med en bra proportion*/
+}
+
+h2 {
+	font-size: 3em;
+	/*inte satt någon font-size i body så då utgår man ifrån att 1em är 16px, därför blir 3em 48px*/
+	text-align: center;
+}
+
+.profil {
+	/*bilden som finns i "Om mig"*/
+	display: block;
+	/*gör att bilden tar hela raden, kombinerar det med margin*/
+	margin: 20px auto;
+	/*centrerar bilden horisontellt*/
+	max-width: 300px;
+	/*styr storleken och blir därför inte 1200px som om den tar upp hela raden*/
+	height: auto;
+	/*bevarar proportionerna på höjden i förhållande till bredden jag valt*/
+}
+
+article {
+	/*nyhetsinläggen på Startsida*/
+	padding: 30px;
+	/*vill ha luft mellan text och den grå kanten runt sektionen*/
+}
+
+article:first-of-type {
+	/*letar upp den första article-taggen i min html-fil, finns flera articles på rad så gäller detta bara den första*/
+	border-top: 1px solid #818181;
+	/*av designskäl ville jag ha en linje mellan den övre rubriken och första artikeln*/
+}
+
+article:not(:last-child) {
+	/*betyder att det gäller alla som inte är det sista barnet, dvs inte sista artikeln*/
+	border-bottom: 1px solid #818181;
+	/*första och andra barnet (eftersom jag bara har 3 artiklar och därför blir den tredje artikeln den sista), får en border bottom av designskäl*/
+}
+
+
+.column {
+	display: flex;
+	/*flexbox för att kunna arrangera boxarna på ett flexibelt och responsivt sätt*/
+	flex-wrap: wrap;
+	/*för att kunna radbryta vid små skärmar, bra för responsivt läge. Blir rutorn ovanpå varandra i stället för bredvid då*/
+	gap: 10px;
+	/*i stället för margin, för att jag kan sätta avstånd mellan spalterna*/
+	margin-top: 10px;
+	/*sätter luft mellan header och spalter. Menyn i vänstra spalten flyttas ner lite*/
+	width: 100%;
+	max-width: 1200px;
+	margin: 0 auto;
+	/*ingen marginal uppe eller nere, och automatiska marginaler till höger och vänster, gäller alltså båda kolumner tillsammans, inte att
+	vardera kolumn blir centrerad*/
+}
+
+.columnLeft {
+	flex: 1;
+	/*för att ta upp så litet utrymme som möjligt, jämför det med columnRight som har flex: 3 och då blir detta förhållande 1:3*/
+	min-width: 200px;
+	/*aldrig bli smalare än 200px*/
+	border: 1px solid black;
+	padding: 10px;
+}
+
+.columnLeft nav {
+	display: block;
+	/*inte flex som headern*/
+		height: auto;
+	/*här anpassas höjden efter innehållet*/
+	background-color: transparent; 
+	/*ingen grön bakgrund i sidokolumnen, den följer parents bakgrund i stället*/
+	padding: 0;
+	/*tar bort padding*/
+	margin-top: 0;
+	/*ingen extra marginal ovanför menyn*/
+}
+
+.columnLeft ul {
+	list-style-type: none;
+	/*för att ul-listan inte ska bli i punktform och få de typiska prickarna*/
+	margin: 0;
+	padding: 0;
+	width: 200px;
+	background-color: #01472e;
+	/*listorna i vänstra kolumnen får grön bakgrund*/
+	border: solid black 0.3px;
+	/*det blir en tunn svart ram runt listan*/
+	text-align: center;
+}
+
+.columnLeft li a {
+	display: block;
+	/*det blir som block*/
+	color: white;
+	padding: 8px 16px;
+	text-decoration: none;
+	/*för att undvika att länkarna får en linje under sig*/
+	border: solid black 0.3px;
+}
+
+.columnRight {
+	/*högra kolumnen*/
+	flex: 3;
+	/*i stället för att använda procent (20 och 80 som jag tänkte från början), så använder jag flex där denna är 3 (delar) och vänstra är 1 (del)*/
+	min-width: 300px;
+	/*rutan är större än den vänstra rutan, och den får inte bli mindre än 300px*/
+	border: 1px solid black;
+	padding: 10px;
+}
+
+.columnLeft li a:hover {
+	/*detta syftar på alla länkar som finns i vänstra kolumnen, i detta fall i menyn som ligger här och alltså vad som händer när man hovrar över en länk här*/
+	background-color: #0b4b34;
+	color: white;
+}
+
+footer {
+	/*sidfoten som finns placerad längst ner på sidan*/
+	max-width: 1200px;
+	text-align: left;
+	margin: 20px auto 0;
+	/*luft utanför sina kanter, 20px uppe, auto på sidorna och 0px nere*/
+	padding: 10px 0;
+	/*inre luft mellan sina kanter, 10px uppe och nere, 0px på sidorna*/
+}
+
+.contact-page {
+	/*sidan med kontaktformuläret*/
+	max-width: 1200px;
+		margin: 0 auto;
+	/*centrerar blocket horisontellt*/
+	text-align: center;
+	/*centrerar min rubrik*/
+}
+
+.contact-page form {
+	/*formuläret på sidan med kontaktformuläret, dvs Kontakt, hade jag haft flera formulär hade jag kunnat göra en regel i en ny
+	kod som kan heta .site-wrapper form*/
+	background-color: rgba(18, 18, 197, 0.288);
+	/*tog bara en slumpmässig färg, 0.288 står för transparens*/
+	width: 400px;
+	/*vill inte att formuläret ska ta upp hela blocket på 1200px så 400px blir lagom*/
+	margin: 20px auto;
+	/*luft till övre rubriken "Kontaktformulär", och centreras mitten horisontellt*/
+	padding: 20px;
+	/*luft mellan border och texten, så det inte blir för tätt*/
+	border-radius: 10px;
+	text-align: left;
+	/*texter och labels hålls till vänster*/
+}
+
+
+table {
+	font-family: Arial, Helvetica, sans-serif;
+	border-collapse: collapse;
+	/*för att det ska bli snygga enkellinjer mellan raderna, och inte "ruta i ruta" som det
+	exempelvis kan bli med separate*/
+	width: 100%;
+	/*sträcker sig över hela siten på 1200px*/
+}
+
+td, th {
+	/*table data (cellerna i en tabell) och table header (rubrikerna i en tabell). Th brukar bli fetmarkerad och td är normal text. Har dock
+	fetmarkerat dem i nedan kod*/
+	border: 1px solid #797878;
+	/*grå färg på linjerna*/
+	padding: 8px;
+	/*avstånd mellan border och text*/
+}
+
+th {
+	/*separata regler för table head*/
+	padding-top: 12px;
+	/*extra luft mellan text och toppen*/
+	padding-bottom: 12px;
+	/*extra luft mellan text och botten*/
+	text-align: left;
+	background-color: #013220;
+	color: white;
+}
+
+table td:first-child {
+	font-weight: bold;
+	/*så att kurskoderna (first-child) i varje rad blir fetmarkerade*/
+}
+
+.contact-icon {
+	/*för att testa att ha något med fixed position. Testade med footer men blev inte snyggt.*/
+	position: fixed;
+	/*alltid på samma plats även om man scrollar*/
+	bottom: 20px;
+	/*20px från botten*/
+	left: 20px;
+	/*20px från vänster*/
+	background-color: #013220;
+	/*mörkgrön bakgrund på knappen, som jag har i menybaren också*/
+	color: white;
+	padding: 10px 15px;
+	/*padding för att knappen annars blir för liten i förhållande till min text i knappen*/
+	border-radius: 20px;
+	/*för jag vill ha rundade hörn*/
+	text-decoration: none;
+	/*vill inte ha understrykning på denna, snyggare utan*/
+	font-weight: bold;
+	/*tycker att den vita texten sticker ut mer om den är fetstilad*/
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+.contact-icon:hover {
+	background-color: #028155;
+	/*valde en ljusare grön för att man ska se att man håller muspekaren på knappen*/
+}

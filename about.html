@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="sv">
+
+<head>
+	<meta charset="utf-8">
+	<title>Min hemsida</title>
+	<link href="bilder/Logotyp.png" rel="icon" type="image/x-icon">
+	<!--själva ikonen som syns på fliken på webben-->
+	<link href="style.css" rel="stylesheet">
+</head>
+
+<body>
+	<header>
+		<nav>
+			<a aria-label="Gå till startsidan" class="site-logo" href="index.html" title="Startsidan">
+				<img alt="Min startsida" src="bilder/Logotyp.png" width="80"></a>
+			<!--Om man klickar på logotypen så kommer man till startsidan-->
+			<div class="topnav" id="myTopnav">
+				<!--nu kommer länkar i toppmenyn-->
+				<a href="index.html">Startsida</a>
+				<a href="courses.html">Kurser</a>
+				<div class="dropdown">
+					<button class="dropbtn">Bilder<i class="fa fa-caret-down"></i></button>
+					<div class="dropdown-content">
+						<a href="pictures1.html">Skånska fotbollslag</a>
+						<a href="pictures2.html">Berg i Afrika</a>
+						<a href="pictures3.html">Träd i skogen</a>
+						<!--här visas vad som kommer som länkalternativ när man klickar på Bilder-knappen-->
+					</div>
+				</div>
+				<a class="active" href="about.html">Om mig</a>
+				<!--eftersom vi är på Om mig-sidan så räknas den som aktiv, och blir markerad med färg enligt css-filen-->
+				<a href="contact.html">Kontakt</a>
+			</div>
+		</nav>
+	</header>
+	<div class="hero-image">
+		<!--bakgrundsbild som är inlagd på alla sidor, mellan menyn och innehållet-->
+		<div class="hero-text">
+			<h1 style="font-size:50px">Elin Ronda</h1>
+			<p>Webbutvecklingsprogrammet</p>
+			<!--text på själva hero-bilden-->
+		</div>
+	</div>
+	<div class="site-wrapper">
+		<!--för att begränsa bredden på sidan-->
+		<h1>Vem är Elin Ronda?</h1>
+		<p>Jag är född och uppvuxen i Landskrona sedan 32 år tillbaka och bor här med man och två barn. Fritiden
+			spenderas på barnens fritidsaktiviteter, på resor eller med familj och vänner. För tillfället studerar jag
+			webbutveckling, då datorer och kodning är något som intresserat mig i flera år men som jag inte tagit tag i.
+		</p><img alt="Illustration av blond kvinna som sitter framför en dator" class="profil" src="bilder/Logotyp.png"><br>
+		<br>
+	</div>
+	<footer>
+		2025-10-03, Elin Ronda, elro2506@student.miun.se
+	</footer>
+	<a class="contact-icon" href="mailto:elro2506@student.miun.se">Mejla mig!</a>
+	<!--en knapp som är på samma plats hela tiden oavsett om man scrollar eller inte-->
+
+</body>
+
+</html>
